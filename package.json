@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "scripts": {
     "test": "jest",
-    "build": "webpack"
+    "build": "gulp build"
   },
 
   "dependencies": {
