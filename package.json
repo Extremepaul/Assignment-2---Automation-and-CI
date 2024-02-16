@@ -1,5 +1,5 @@
 {
-  "name": "your-project-name",
+  "name": "Assignment-2---Automation-and-CI",
   "version": "1.0.0",
   "scripts": {
     "test": "jest"
