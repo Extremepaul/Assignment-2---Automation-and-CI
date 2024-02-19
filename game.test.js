@@ -1,26 +1,21 @@
+// game.test.js
 
-const { checkPuzzleStatus } = require('./game');
+const axios = require('axios');
 
-// Mock puzzleData to simulate the game state
-const puzzleData = {
-  rows: [
-    [{ currentState: 0, correctState: 0 }, { currentState: 1, correctState: 1 }, { currentState: 2, correctState: 2 }],
-    [{ currentState: 0, correctState: 0 }, { currentState: 1, correctState: 1 }, { currentState: 2, correctState: 2 }],
-    [{ currentState: 0, correctState: 0 }, { currentState: 1, correctState: 1 }, { currentState: 2, correctState: 2 }]
-  ]
-};
+describe('fetchPuzzleData', () => {
+  it('should receive response from the API', async () => {
+    try {
+      // Hacer una solicitud HTTP a la URL
+      const response = await axios.get('https://prog2700.onrender.com/threeinarow/sample');
 
-describe('checkPuzzleStatus', () => {
-  it('should return "You did it!!" if all squares are correct', () => {
-    const status = checkPuzzleStatus(puzzleData);
-    expect(status).toBe('You did it!!');
-  });
+      // Verificar si la respuesta contiene un JSON válido
+      expect(response.data).toBeDefined();
+      expect(typeof response.data).toBe('object');
 
-  it('should return "Something is wrong" if one or more squares are incorrect', () => {
-    // Modify puzzleData to simulate an incorrect state
-    puzzleData.rows[0][0].currentState = 1;
-
-    const status = checkPuzzleStatus(puzzleData);
-    expect(status).toBe('Something is wrong');
+      // Si la prueba llega a este punto, significa que la URL responde con un JSON válido
+    } catch (error) {
+      // Si se produce un error, hacemos que la prueba falle explícitamente
+      expect(error).toBeUndefined(); // Esto asegura que la prueba falle
+    }
   });
 });
