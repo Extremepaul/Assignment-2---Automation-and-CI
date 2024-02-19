@@ -1,9 +1,8 @@
 {
-  "name": "Assignment-2---Automation-and-CI",
+  "name": "game.js",
   "version": "1.0.0",
   "scripts": {
-    "test": "jest",
-    "build": "gulp build"
+    "test": "jest"
   },
   "dependencies": {
     "chromedriver": "^121.0.1",
